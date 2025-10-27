@@ -13,7 +13,7 @@ class Dictionary:
         key: int,
         hash_num: int,
         value: Any
-    ) -> tuple[int, int, Any]:
+    ) -> tuple[Any, int, Any]:
         return key, hash_num, value
 
     def aux_cal(self, key: int) -> tuple[int, int]:
@@ -37,7 +37,7 @@ class Dictionary:
         self.hash_table = new_table
         self.capacity = new_capacity
 
-    def __setitem__(self, key: int, value: Any) -> None:
+    def __setitem__(self, key: int, value: Any) -> Any:
         compute_hash, index = self.aux_cal(key)
         bucket = self.hash_table[index]
         if bucket is None:
