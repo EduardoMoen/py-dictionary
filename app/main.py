@@ -10,7 +10,7 @@ class Dictionary:
 
     def node(
         self,
-        key: int,
+        key: Any,
         hash_num: int,
         value: Any
     ) -> tuple[Any, int, Any]:
@@ -37,7 +37,7 @@ class Dictionary:
         self.hash_table = new_table
         self.capacity = new_capacity
 
-    def __setitem__(self, key: int, value: Any) -> Any:
+    def __setitem__(self, key: int, value: Any) -> None:
         compute_hash, index = self.aux_cal(key)
         bucket = self.hash_table[index]
         if bucket is None:
@@ -54,7 +54,7 @@ class Dictionary:
         if self.length / self.capacity > self.load_factor_threshold:
             self.resize()
 
-    def __getitem__(self, key: int) -> None:
+    def __getitem__(self, key: int) -> Any:
         compute_hash, index = self.aux_cal(key)
 
         if self.hash_table[index] is not None:
